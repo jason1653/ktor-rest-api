@@ -3,8 +3,10 @@ package org.jason.service
 import com.auth0.jwt.JWT
 import com.auth0.jwt.JWTVerifier
 import com.auth0.jwt.algorithms.Algorithm
+import com.typesafe.config.ConfigFactory
 import io.ktor.server.application.*
 import io.ktor.server.auth.jwt.*
+import io.ktor.server.config.*
 import org.jason.routing.request.LoginRequest
 import java.security.AlgorithmConstraints
 import java.util.*
@@ -60,5 +62,6 @@ class JwtService(
     }
 
     private fun getConfigProperty(path: String) =
-        application.environment.config.property(path).getString()
+//        application.environment.config.property(path).getString()
+        HoconApplicationConfig(ConfigFactory.load()).property(path).getString()
 }
