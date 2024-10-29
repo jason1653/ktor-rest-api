@@ -5,6 +5,7 @@ import io.ktor.server.config.*
 import org.jason.common.ApplicationConfigUtils
 import org.jason.config.DatabaseConfigUtils.connectDataBase
 import org.jetbrains.exposed.sql.Database
+import org.jetbrains.exposed.sql.transactions.transaction
 
 fun Application.configureDatabase() {
     connectDataBase()
@@ -24,5 +25,11 @@ object DatabaseConfigUtils {
             user = user,
             password = password
         )
+    }
+
+    fun <T> dbQuery(
+        block: () -> T
+    ): T = transaction {
+        block()
     }
 }
