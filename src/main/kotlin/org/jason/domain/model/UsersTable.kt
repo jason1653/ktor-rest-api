@@ -4,7 +4,7 @@ import org.jetbrains.exposed.sql.Table
 import org.jetbrains.exposed.sql.javatime.timestamp
 import java.time.Instant
 
-object Users : Table("USERS") {
+object UsersTable : Table("USERS") {
     // 컬럼 정의
     val uid = varchar("UID", 20)
     val username = varchar("USERNAME", 30).nullable()
@@ -15,7 +15,7 @@ object Users : Table("USERS") {
     override val primaryKey = PrimaryKey(uid, name = "USERS_pkey")
 }
 
-data class UsersModel(
+data class UsersEntity(
     val uid: String,
     val username: String,
     val pwd: String,
