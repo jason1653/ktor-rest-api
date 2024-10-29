@@ -7,6 +7,7 @@ import org.jason.infrastructure.repository.UsersRepositoryImpl
 import org.koin.ktor.plugin.Koin
 import org.koin.dsl.module
 
+
 val dependencyInjectionModule = module {
     single {
         UsersService(

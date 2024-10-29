@@ -45,6 +45,7 @@ dependencies {
     implementation("io.insert-koin:koin-core:$koinVersion")
 
     implementation("org.postgresql:postgresql:$postgresqlVersion")
+    implementation("io.ktor:ktor-server-call-logging-jvm:3.0.0")
 
 
     testImplementation("io.ktor:ktor-server-test-host-jvm")

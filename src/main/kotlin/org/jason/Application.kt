@@ -15,9 +15,16 @@ fun main() {
 
 fun Application.module() {
 
+    //데이터베이스config
     configureDatabase()
+
+    //Serialization config
     configureSerialization()
+
+    //DI config
     configureDependencyInjection()
+
+    //Routing config
     configureRouting()
 
 
