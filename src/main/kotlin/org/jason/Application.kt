@@ -3,9 +3,9 @@ package org.jason
 import io.ktor.server.application.*
 import io.ktor.server.engine.*
 import io.ktor.server.netty.*
-import org.jason.config.configureDatabase
-import org.jason.config.configureDependencyInjection
-import org.jason.config.configureSerialization
+import org.jason.infrastructure.config.configureDatabase
+import org.jason.infrastructure.config.configureDependencyInjection
+import org.jason.infrastructure.config.configureSerialization
 import org.jason.infrastructure.config.configureRouting
 
 fun main() {

@@ -1,6 +1,6 @@
-package org.jason.infrastructure.repository
+package org.jason.adapter.repository
 
-import org.jason.config.DatabaseConfigUtils.dbQuery
+import org.jason.infrastructure.config.DatabaseConfigUtils.dbQuery
 import org.jason.domain.model.UsersEntity
 import org.jason.domain.model.UsersTable
 import org.jason.domain.repository.UsersRepository

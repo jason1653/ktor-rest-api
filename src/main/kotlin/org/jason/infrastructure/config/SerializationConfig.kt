@@ -1,4 +1,4 @@
-package org.jason.config
+package org.jason.infrastructure.config
 
 import io.ktor.serialization.kotlinx.json.*
 import io.ktor.server.application.*

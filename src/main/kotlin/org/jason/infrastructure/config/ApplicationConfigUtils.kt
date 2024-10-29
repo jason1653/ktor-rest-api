@@ -1,4 +1,4 @@
-package org.jason.common
+package org.jason.infrastructure.config
 
 import com.typesafe.config.ConfigFactory
 import io.ktor.server.config.*
