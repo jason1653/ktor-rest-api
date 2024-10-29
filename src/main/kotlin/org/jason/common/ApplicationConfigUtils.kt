@@ -4,6 +4,9 @@ import com.typesafe.config.ConfigFactory
 import io.ktor.server.config.*
 
 object ApplicationConfigUtils {
+
+    private val config = HoconApplicationConfig(ConfigFactory.load())
+
     fun getConfigProperty(path: String) =
-        HoconApplicationConfig(ConfigFactory.load()).property(path).getString()
+        config.property(path).getString()
 }
