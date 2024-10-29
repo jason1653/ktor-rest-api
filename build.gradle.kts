@@ -4,7 +4,7 @@ val logbackVersion: String by project
 val exposedVersion: String by project
 val postgresqlVersion: String by project
 val koinVersion: String by project
-
+val mapstructVersion: String by project
 
 plugins {
     kotlin("jvm") version "2.0.21"
@@ -39,6 +39,8 @@ dependencies {
     implementation("org.jetbrains.exposed:exposed-jdbc:$exposedVersion")
     implementation("org.jetbrains.exposed:exposed-dao:$exposedVersion")
     implementation("org.jetbrains.exposed:exposed-java-time:$exposedVersion")
+
+    implementation("org.mapstruct:mapstruct:$mapstructVersion")
 
 
     implementation("io.insert-koin:koin-ktor:$koinVersion")
