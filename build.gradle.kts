@@ -33,6 +33,9 @@ dependencies {
     implementation("io.ktor:ktor-server-netty-jvm:$ktorVersion")
     implementation("io.ktor:ktor-server-content-negotiation:$ktorVersion")
     implementation("io.ktor:ktor-serialization-kotlinx-json:$ktorVersion")
+    testImplementation("io.ktor:ktor-server-test-host:$ktorVersion")
+    testImplementation("org.jetbrains.kotlin:kotlin-test:$ktorVersion")
+
     implementation("ch.qos.logback:logback-classic:$logbackVersion")
 
     implementation("org.jetbrains.exposed:exposed-core:$exposedVersion")
