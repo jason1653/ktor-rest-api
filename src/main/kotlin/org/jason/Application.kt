@@ -15,11 +15,17 @@ fun Application.module() {
     //데이터베이스config
     configureDatabase()
 
+    //Serialization config
+    configureSerialization()
+
+    configureValidation()
+
+
+    configureException()
+
     //모니터링
     configureMonitoring()
 
-    //Serialization config
-    configureSerialization()
 
     //DI config
     configureDependencyInjection()
@@ -29,7 +35,6 @@ fun Application.module() {
 
     configureMicrometerMetrics()
 
-    configureException()
 
 
 }

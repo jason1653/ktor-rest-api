@@ -38,6 +38,7 @@ dependencies {
     implementation("io.ktor:ktor-server-metrics-micrometer:$ktorVersion")
     implementation("io.ktor:ktor-server-status-pages:$ktorVersion")
     implementation("io.ktor:ktor-server-status-pages-jvm:$ktorVersion")
+    implementation("io.ktor:ktor-server-request-validation:$ktorVersion")
 
 
     implementation("io.micrometer:micrometer-registry-prometheus:$prometheusVersion")

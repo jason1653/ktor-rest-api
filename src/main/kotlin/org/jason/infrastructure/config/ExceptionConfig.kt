@@ -7,19 +7,33 @@ import io.ktor.server.routing.*
 import io.ktor.http.*
 import io.ktor.server.application.*
 import io.ktor.server.plugins.*
+import io.ktor.server.plugins.requestvalidation.*
 import io.ktor.server.plugins.statuspages.*
 import io.ktor.server.response.*
 import org.jason.application.dto.ErrorResponse
 
 fun Application.configureException() {
     install(StatusPages) {
-        exception<Throwable> { call, cause ->
-            call.respondText(text = "500: $cause", status = HttpStatusCode.InternalServerError)
-        }
-
-        exception<NotFoundException> { call, cause ->
-            print("404 오류")
-            call.respond(HttpStatusCode.NotFound)
+        exception<RequestValidationException> { call, cause ->
+            if (cause.reasons.isNotEmpty()) {
+                call.respond(
+                    HttpStatusCode.BadRequest,
+                    ErrorResponse(
+                        HttpStatusCode.BadRequest.value,
+                        "validation_error",
+                        cause.reasons.joinToString(", ")
+                    )
+                )
+            } else {
+                call.respond(
+                    HttpStatusCode.BadRequest,
+                    ErrorResponse(
+                        HttpStatusCode.BadRequest.value,
+                        "validation_error",
+                        cause.message ?: "Bad Request"
+                    )
+                )
+            }
         }
 
         status(HttpStatusCode.NotFound) { call, status ->
@@ -32,5 +46,6 @@ fun Application.configureException() {
                 )
             )
         }
+
     }
 }

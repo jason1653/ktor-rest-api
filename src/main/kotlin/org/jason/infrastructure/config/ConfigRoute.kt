@@ -9,6 +9,7 @@ import org.koin.ktor.ext.inject
 fun Application.configureRouting() {
     val usersUseCase: UsersUseCase by inject()
 
+
     routing {
         route("/api/users") {
             usersRoutes(usersUseCase)
