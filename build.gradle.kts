@@ -36,7 +36,12 @@ dependencies {
     implementation("io.ktor:ktor-server-content-negotiation:$ktorVersion")
     implementation("io.ktor:ktor-serialization-kotlinx-json:$ktorVersion")
     implementation("io.ktor:ktor-server-metrics-micrometer:$ktorVersion")
+    implementation("io.ktor:ktor-server-status-pages:$ktorVersion")
+    implementation("io.ktor:ktor-server-status-pages-jvm:$ktorVersion")
+
+
     implementation("io.micrometer:micrometer-registry-prometheus:$prometheusVersion")
+
 
     implementation("ch.qos.logback:logback-classic:$logbackVersion")
 
@@ -53,6 +58,7 @@ dependencies {
 
     implementation("org.postgresql:postgresql:$postgresqlVersion")
     implementation("io.ktor:ktor-server-call-logging-jvm:3.0.0")
+    implementation("io.ktor:ktor-server-host-common-jvm:3.0.0")
 
 
 

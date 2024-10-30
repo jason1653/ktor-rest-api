@@ -29,5 +29,7 @@ fun Application.module() {
 
     configureMicrometerMetrics()
 
+    configureException()
+
 
 }
