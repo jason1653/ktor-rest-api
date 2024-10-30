@@ -1,4 +1,4 @@
-## KTOR + EXPOSED STYDY
+## KTOR + EXPOSED STUDY
 1. Ktor 프레임워크 사용
 2. Exposed 사용
 3. Postgresql 사용
