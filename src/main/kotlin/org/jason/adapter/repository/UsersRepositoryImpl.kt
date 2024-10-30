@@ -10,6 +10,11 @@ import org.jetbrains.exposed.sql.selectAll
 
 class UsersRepositoryImpl : UsersRepository {
     override suspend fun findUserById(id: String) = dbQuery {
+//        val nonExistentTable = object : Table("non_existent_table") {
+//            val uid = varchar("UID", 20)
+//        }
+//
+
         return@dbQuery UsersTable.selectAll().where { UsersTable.uid eq id }
             .mapNotNull { toUser(it) }
             .singleOrNull()
@@ -17,10 +22,10 @@ class UsersRepositoryImpl : UsersRepository {
 
     override suspend fun save(user: UsersEntity): String = dbQuery {
         UsersTable.insert {
-            it[uid] = user.uid
+            it[uid] = "198273891723891723987192837198273"
             it[username] = user.username
             it[pwd] = user.pwd
-            it[registDateTime] = user.registDateTime
+//            it[registDateTime] = user.registDateTime
         }
         user.uid
     }
@@ -30,7 +35,7 @@ class UsersRepositoryImpl : UsersRepository {
             uid = row[UsersTable.uid], // ResultRow에서 "UID" 컬럼 값을 가져옵니다.
             username = row[UsersTable.username] ?: "", // "USERNAME" 컬럼 값을 가져옵니다.
             pwd = row[UsersTable.pwd] ?: "", // "PWD" 컬럼 값을 가져옵니다.
-            registDateTime = row[UsersTable.registDateTime] // "REGIST_DATETIME" 컬럼 값을 가져옵니다.
+//            registDateTime = row[UsersTable.registDateTime] // "REGIST_DATETIME" 컬럼 값을 가져옵니다.
         )
     }
 }

@@ -14,7 +14,7 @@ data class CreateUsersRequest(
             uid = "1111111",
             username = this.username,
             pwd = this.pwd,
-            registDateTime = Instant.now()
+//            registDateTime = Instant.now()
         )
     }
 }

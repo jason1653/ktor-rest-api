@@ -4,6 +4,7 @@ import io.ktor.events.EventDefinition
 import io.ktor.http.*
 import io.ktor.server.application.*
 import io.ktor.server.application.hooks.*
+import io.ktor.server.request.*
 
 val ApplicationMonitoringPlugin = createApplicationPlugin(name = "ApplicationMonitoringPlugin") {
     on(MonitoringEvent(ApplicationStarted)) { application ->
@@ -17,8 +18,17 @@ val ApplicationMonitoringPlugin = createApplicationPlugin(name = "ApplicationMon
     }
     on(ResponseSent) { call ->
         if (call.response.status() == HttpStatusCode.NotFound) {
+            application.log.info("Not found: ${call.request.uri}")
             this@createApplicationPlugin.application.monitor.raise(NotFoundEvent, call)
         }
+
+        if (call.response.status() == HttpStatusCode.BadRequest) {
+            application.log.info("Bad request: ${call.request.uri}")
+
+        }
+
+
+
     }
 }
 

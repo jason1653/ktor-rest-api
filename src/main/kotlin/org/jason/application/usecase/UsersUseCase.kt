@@ -11,4 +11,6 @@ class UsersUseCase(
 
         return usersRepository.save(entity)
     }
+
+    suspend fun findUserById(id: String) = usersRepository.findUserById(id)
 }
