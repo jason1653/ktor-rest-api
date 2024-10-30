@@ -6,9 +6,9 @@ import org.jason.domain.repository.UsersRepository
 class UsersUseCase(
     private val usersRepository: UsersRepository
 ) {
-    suspend fun save(request: CreateUsersRequest) {
+    suspend fun save(request: CreateUsersRequest): String {
         val entity = request.toEntity()
 
-        usersRepository.save(entity)
+        return usersRepository.save(entity)
     }
 }

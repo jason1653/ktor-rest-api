@@ -5,6 +5,8 @@ val exposedVersion: String by project
 val postgresqlVersion: String by project
 val koinVersion: String by project
 val mapstructVersion: String by project
+val mockkVersion: String by project
+
 
 plugins {
     kotlin("jvm") version "2.0.21"
@@ -33,8 +35,6 @@ dependencies {
     implementation("io.ktor:ktor-server-netty-jvm:$ktorVersion")
     implementation("io.ktor:ktor-server-content-negotiation:$ktorVersion")
     implementation("io.ktor:ktor-serialization-kotlinx-json:$ktorVersion")
-    testImplementation("io.ktor:ktor-server-test-host:$ktorVersion")
-    testImplementation("org.jetbrains.kotlin:kotlin-test:$ktorVersion")
 
     implementation("ch.qos.logback:logback-classic:$logbackVersion")
 
@@ -55,6 +55,11 @@ dependencies {
 
 
 
+
+
     testImplementation("io.ktor:ktor-server-test-host-jvm")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit")
+    testImplementation("io.mockk:mockk:$mockkVersion")
+
+
 }

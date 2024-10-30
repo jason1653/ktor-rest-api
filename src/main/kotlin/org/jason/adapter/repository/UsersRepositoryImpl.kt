@@ -15,15 +15,14 @@ class UsersRepositoryImpl : UsersRepository {
             .singleOrNull()
     }
 
-    override suspend fun save(user: UsersEntity) {
-        dbQuery {
-            UsersTable.insert {
-                it[uid] = user.uid
-                it[username] = user.username
-                it[pwd] = user.pwd
-                it[registDateTime] = user.registDateTime
-            }
+    override suspend fun save(user: UsersEntity): String = dbQuery {
+        UsersTable.insert {
+            it[uid] = user.uid
+            it[username] = user.username
+            it[pwd] = user.pwd
+            it[registDateTime] = user.registDateTime
         }
+        user.uid
     }
 
     private fun toUser(row: ResultRow): UsersEntity {
