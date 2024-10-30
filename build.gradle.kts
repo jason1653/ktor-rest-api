@@ -6,7 +6,7 @@ val postgresqlVersion: String by project
 val koinVersion: String by project
 val mapstructVersion: String by project
 val mockkVersion: String by project
-
+val prometheusVersion: String by project
 
 plugins {
     kotlin("jvm") version "2.0.21"
@@ -35,6 +35,8 @@ dependencies {
     implementation("io.ktor:ktor-server-netty-jvm:$ktorVersion")
     implementation("io.ktor:ktor-server-content-negotiation:$ktorVersion")
     implementation("io.ktor:ktor-serialization-kotlinx-json:$ktorVersion")
+    implementation("io.ktor:ktor-server-metrics-micrometer:$ktorVersion")
+    implementation("io.micrometer:micrometer-registry-prometheus:$prometheusVersion")
 
     implementation("ch.qos.logback:logback-classic:$logbackVersion")
 
