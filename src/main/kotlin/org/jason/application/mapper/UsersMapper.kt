@@ -1,8 +1,8 @@
 package org.jason.application.mapper
 
+import org.jason.adapter.dto.UsersDTO
 import org.jason.adapter.model.UsersModel
 import org.jason.application.dto.request.CreateUsersRequest
-import org.jason.application.dto.service.UsersDTO
 import org.mapstruct.Mapper
 
 @Mapper

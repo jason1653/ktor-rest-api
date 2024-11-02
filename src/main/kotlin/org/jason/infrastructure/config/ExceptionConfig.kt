@@ -6,7 +6,7 @@ import io.ktor.http.*
 import io.ktor.server.plugins.*
 import io.ktor.server.plugins.requestvalidation.*
 import io.ktor.server.plugins.statuspages.*
-import org.jason.application.dto.ErrorResponse
+import org.jason.application.dto.response.ErrorResponse
 import org.jetbrains.exposed.exceptions.ExposedSQLException
 import java.sql.SQLException
 
@@ -81,18 +81,16 @@ fun Application.configureException() {
         }
 
 
-//        status(HttpStatusCode.NotFound) { call, cause ->
-//
-//            print("OK")
-//            call.respond(
-//                HttpStatusCode.NotFound,
-//                ErrorResponse(
-//                    HttpStatusCode.NotFound.value,
-//                    HttpStatusCode.NotFound.value.toString(),
-//                    cause ?: "Not Found"
-//                )
-//            )
-//        }
+        status(HttpStatusCode.NotFound) { call, cause ->
+            call.respond(
+                HttpStatusCode.NotFound,
+                ErrorResponse(
+                    HttpStatusCode.NotFound.value,
+                    HttpStatusCode.NotFound.value.toString(),
+                    "Not Found"
+                )
+            )
+        }
 
     }
 }

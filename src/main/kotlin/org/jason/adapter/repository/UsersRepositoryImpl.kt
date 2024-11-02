@@ -1,5 +1,6 @@
 package org.jason.adapter.repository
 
+import org.jason.adapter.dto.UsersDTO
 import org.jason.infrastructure.config.DatabaseConfigUtils.dbQuery
 import org.jason.domain.model.UsersEntity
 import org.jason.domain.model.UsersTable
@@ -20,14 +21,14 @@ class UsersRepositoryImpl : UsersRepository {
             .singleOrNull()
     }
 
-    override suspend fun save(user: UsersEntity): String = dbQuery {
+    override suspend fun save(user: UsersDTO): String = dbQuery {
         UsersTable.insert {
             it[uid] = "198273891723891723987192837198273"
             it[username] = user.username
             it[pwd] = user.pwd
 //            it[registDateTime] = user.registDateTime
         }
-        user.uid
+        user.uid?: ""
     }
 
     private fun toUser(row: ResultRow): UsersEntity {

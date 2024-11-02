@@ -1,4 +1,4 @@
-package org.jason.application.dto
+package org.jason.application.dto.response
 
 import kotlinx.serialization.Serializable
 
